@@ -4,17 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Хомяковый Кликер</title>
-  <link rel="shortcut icon" href="./src/imgs/icon.png" type="image/x-icon">
-  <link rel="stylesheet" href="./src/css/style.css">
+  <link rel="shortcut icon" href="../imgs/icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/all.css">
   <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-  <div class="body2">
-    <div class="currency-display">
-      Деньги: <span id="currency-amount">0</span> 💰
+  <div class="container">
+    <h1>Хомяковый Кликер</h1>
+    <div class="hamster-container">
+        <img class="hamster-image" src="../imgs/homak.png" alt="Hamster Image">
     </div>
-    <img class="homak" src="./src/imgs/homak.png">
-  </div>
-  <script src="./src/js/script.js"></script>
+    <button class="click-button" id="clickButton">Кликай!</button>
+    <div class="score" id="score">Счет: 0</div>
+</div>
+  <script src="../js/script.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/all.js"></script>
 </body>
 </html>

@@ -9,12 +9,6 @@ body {
   padding: 0;
   margin: 0;
 }
-nav {
-  height: 20px;
-  display: flex;
-  align-items: center;
-  background: #1c1c1c;
-}
 
 .homak {
   position: absolute;
@@ -24,4 +18,11 @@ nav {
   margin-left: -10px; /* половина ширины */
   margin-top: 0; /* уберем отступ по вертикали */
 
+}
+.currency-display {
+  position: absolute;
+  top: 25%; /* Используем проценты для положения относительно родительского элемента */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-left: -5px; /* половина ширины */
 }
