@@ -1,1 +1,0 @@
-const authorization = require('./authorize');
