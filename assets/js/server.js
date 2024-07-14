@@ -1,4 +1,9 @@
+const express = require('express');
 const fetch = require('node-fetch');
+const mongoose = require('mongoose');
+const ejs = require('ejs');
+
+const app = express();
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://BFFBOT:LLq-7NW-adG-e44@bffbot.hr7tpgj.mongodb.net/?retryWrites=true&w=majority&appName=BFFBOT', {
   useNewUrlParser: true,
@@ -12,14 +17,11 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userSchema);
-// Допустим, у вас есть переменная discordClientId, содержащая идентификатор вашего приложения Discord
-// и переменная discordClientSecret, содержащая секрет вашего приложения Discord
 
 app.get('/auth/discord', async (req, res) => {
   const code = req.query.code;
   if (code) {
     try {
-      // Обмен кода авторизации на токен доступа
       const tokenResponse = await fetch('https://discord.com/api/v8/oauth2/token', {
         method: 'POST',
         body: new URLSearchParams({
@@ -31,7 +33,7 @@ app.get('/auth/discord', async (req, res) => {
           scope: 'identify'
         }),
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/x-www-form-urlencoded'
         }
       });
       const tokenData = await tokenResponse.json();
@@ -43,24 +45,19 @@ app.get('/auth/discord', async (req, res) => {
       });
       const userInfo = await userResponse.json();
 
-      const existingUser = await User.findOne({ discordId: userInfo.id });
-      if (existingUser) {
-        await existingUser.updateOne({ username: userInfo.username /* other fields */ });
-      } else {
-        const newUser = new User({
-          discordId: userInfo.id,
-          username: userInfo.username,
-          // Add other fields as needed
-        });
-        await newUser.save();
-      }
+      // Render the HTML using EJS with the user information
+      const renderedHtml = await ejs.renderFile('template.ejs', { username: userInfo.username, avatar: `https://cdn.discordapp.com/avatars/${userInfo.id}/${userInfo.avatar}.png` });
 
-      res.send('User data successfully saved.');
+      res.send(renderedHtml);
     } catch (error) {
       console.error(error);
-      res.status(500).send('Failed to save user data.');
+      res.status(500).send('Failed to fetch user data from Discord.');
     }
   } else {
     res.status(400).send('Authorization code is missing.');
   }
 });
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+  });
