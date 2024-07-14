@@ -1,0 +1,14 @@
+{
+  "name": "hamster-clicker",
+  "version": "1.0.0",
+  "description": "[![Official Discord Server](https://discordapp.com/api/guilds/1172849996081659934/embed.png)]([https://discord.gg/EdWspu3](https://discord.gg/YQFTeBsmCD))",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^8.5.1"
+  }
+}
