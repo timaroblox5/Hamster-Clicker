@@ -1,21 +1,14 @@
 # Security Policy
 
-## Supported Versions
+🔒 Security Notice 🔒
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+It is strictly prohibited to engage in any form of unauthorized access or theft of sensitive data. This includes, but is not limited to:
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+1. Unauthorized data access or retrieval.
+2. Attempting to bypass security measures.
+3. Unauthorized distribution or use of private keys, access tokens, or credentials.
+4. Intentional disruption or compromise of system integrity.
 
-## Reporting a Vulnerability
+Any unauthorized access or theft of confidential information is illegal and unethical. Always ensure that you have explicit permission and proper authorization before interacting with or accessing any sensitive data or systems.
 
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Thank you for your understanding and cooperation in maintaining the security and integrity of our system. If you have any further questions regarding security guidelines or best practices, feel free to ask!
