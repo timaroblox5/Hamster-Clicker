@@ -12,4 +12,27 @@
 <body>
 </body>
 <script src="../../src/js/authorize.js"></script>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAX7DaAJ7jHqz7GlzkOhX_3UJbbAC9MXpA",
+    authDomain: "omletarcade-7e74f.firebaseapp.com",
+    projectId: "omletarcade-7e74f",
+    storageBucket: "omletarcade-7e74f.appspot.com",
+    messagingSenderId: "638471565776",
+    appId: "1:638471565776:web:2af3f5d272521cda2589d5",
+    measurementId: "G-Y4HJYP1T4W"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </html>
