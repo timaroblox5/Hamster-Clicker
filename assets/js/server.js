@@ -29,7 +29,7 @@ app.get('/auth/discord', async (req, res) => {
           client_secret: 'HjPr92TcJ45Z1PeeJ7FhUG9B_Bix3-p3',
           code: code,
           grant_type: 'authorization_code',
-          redirect_uri: 'https://timaroblox5.github.io/web/game/', // Замените на свой URL
+          redirect_uri: 'https://timaroblox5.github.io/hamsterclicker/web/game/', // Замените на свой URL
           scope: 'identify'
         }),
         headers: {
