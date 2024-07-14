@@ -1,1 +1,1 @@
-const server = require('../../assets/js/server')
+const server = require('./../../assets/js/server')
