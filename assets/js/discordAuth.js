@@ -21,9 +21,13 @@ async function handleDiscordAuth(req, res, code) {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     });
-
+  
+    // Add a console log to inspect the response
+    console.log('Token response status:', tokenResponse.status);
+    console.log('Token response data:', await tokenResponse.json());
+  
     // Rest of the code
-
+  
   } catch (error) {
     console.error(error);
     res.status(500).send('Failed to process the request.');
