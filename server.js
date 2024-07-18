@@ -23,15 +23,27 @@ app.get('/auth/discord', async (req, res) => {
   await handleDiscordAuth(req, res, code);
 });
 
-// Define the route for /web/authorize/
-app.get('/web/authorize/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'authorize', 'index.html'));
+
+// Обработка статических файлов
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Обработка маршрутов /web/authorize, /web/home, /web/game
+app.get('/web/authorize', (req, res) => {
+    res.sendFile(path.join(__dirname, 'web', 'authorize', 'index.html'));
 });
 
+app.get('/web/home', (req, res) => {
+    res.sendFile(path.join(__dirname, 'web', 'home', 'index.html'));
+});
 
+app.get('/web/game', (req, res) => {
+    res.sendFile(path.join(__dirname, 'web', 'game', 'index.html'));
+});
 
-// Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, 'web')));
+// Обработка любых других запросов через ./index.html
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // Start the server
 const PORT = 3000;

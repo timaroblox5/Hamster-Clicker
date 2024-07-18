@@ -4,21 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Хомяковый Кликер</title>
-  <link rel="shortcut icon" href="../../src/imgs/icon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./../../src/css/all.css">
-  <link rel="stylesheet" href="./authorize.css">
+  <link rel="shortcut icon" href="/src/imgs/icon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="/src/css/all.css">
+  <link rel="stylesheet" type="text/css" href="/src/css/authorize.css">
   <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; /* Чтобы кнопка оставалась по центру на всей высоте экрана */
-      margin: 0;
-    }
-  </style>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' type="text/css" rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Чтобы кнопка оставалась по центру на всей высоте экрана */
+    margin: 0;
+  }
+</style>
 <body>
   <button class="authorize" onclick="openDiscordAuth()">Войти с помощью дискорд</button>
 
@@ -27,6 +28,9 @@
       window.location.href = 'https://discord.com/oauth2/authorize?client_id=1260867202438139947&response_type=code&redirect_uri=https%3A%2F%2Ftimaroblox5.github.io%2Fhamsterclicker%2Fweb%2Fgame%2F&scope=identify';
     }
   </script>
-  <script src="../../assets/js/server.js"></script>
+  <script src="../../server.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
