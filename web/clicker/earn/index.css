@@ -1,0 +1,67 @@
+body {
+    background-color: rgb(16, 16, 16);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.main {
+    background-color: rgb(50, 50, 50); /* Existing property */
+    display: flex; /* Existing property */
+    justify-content: center; /* Existing property */
+    align-items: center; /* Existing property */
+    margin-top: 14vh; /* Existing property */
+    height: 2400px; /* Existing property */
+    padding: 54.5vh; /* Existing property, might need adjustment */
+    border-radius: 5px; /* Existing property */
+    border-top-width: 25px; /* Existing property */
+    position: relative; /* Existing property */
+    border-top-color: rgb(243, 186, 47); /* Existing property */
+    border-top-left-radius: 40px; /* Existing property */
+    border-top-right-radius: 40px; /* Existing property */
+    border-top-style: solid; /* Existing property */
+    border-top-width: 1.25px; /* Existing property */
+    box-shadow: rgba(250, 184, 34, 0.6) 0px -4px 64px; /* Existing property */
+}
+
+.topbar {
+    background-color: rgb(22, 22, 22);
+    border-radius: 25px;
+    position: fixed;
+    bottom: 0;
+    left: 50; /* Set the top-left corner of the bar to align with the left edge of the viewport */
+    width: 109vh; /* Make the top bar full width */
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Ensure the top bar is above other content */
+}
+a {
+    color: rgb(55, 55, 55);
+    margin-left: 3vh;
+    margin-right: 3vh;
+    font-size: 2vh;
+    text-decoration: none; /* Remove underline from anchor elements */
+}
+a:hover {
+    border-radius: 25vh;
+    padding: 0.9vh;
+    background-color: rgb(34, 34, 34);
+    transition: all 0.5s;
+    color: rgb(212, 212, 212);
+    margin-left: 3vh;
+    margin-right: 3vh;
+    font-size: 2vh;
+    text-decoration: none; /* Remove underline from anchor elements */
+}
+
+.Earn {
+    padding: 0.9vh;
+    color: rgb(255, 255, 255);;
+    border-radius: 25vh;
+    background-color: rgb(34, 34, 34);
+}

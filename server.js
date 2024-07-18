@@ -37,7 +37,7 @@ app.get('/web/home', (req, res) => {
 });
 
 app.get('/web/game', (req, res) => {
-    res.sendFile(path.join(__dirname, 'web', 'game', 'index.html'));
+    res.sendFile(path.join(__dirname, 'web', 'clicker', 'index.html'));
 });
 
 // Обработка любых других запросов через ./index.html
