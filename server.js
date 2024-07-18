@@ -25,11 +25,20 @@ app.get('/auth/discord', async (req, res) => {
 
 
 // Обработка статических файлов
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'web')));
 
 // Обработка маршрутов /web/authorize, /web/home, /web/game
-app.get('/web/clicker/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'web', 'clicker'));
+app.get('/web/clicker/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'web', 'clicker', 'index.html'));
+});
+app.get('/web/mine/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'clicker', 'mine', 'index.html'));
+});
+app.get('/web/clicker/friends', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'clicker', 'friends', 'index.html'));
+});
+app.get('/web/clicker/earn', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'clicker', 'earn', 'index.html'));
 });
 
 // Обработка любых других запросов через ./index.html
