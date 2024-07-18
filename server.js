@@ -28,8 +28,8 @@ app.get('/auth/discord', async (req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Обработка маршрутов /web/authorize, /web/home, /web/game
-app.get('/web/game', (req, res) => {
-    res.sendFile(path.join(__dirname, 'web', 'clicker', 'index.html'));
+app.get('/web/clicker/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'web', 'clicker'));
 });
 
 // Обработка любых других запросов через ./index.html
