@@ -4,6 +4,7 @@ const { handleDiscordAuth } = require('./assets/js/discordAuth'); // Import the 
 const express = require('express');
 const path = require('path');
 const app = express();
+const staticGzip = require('express-static-gzip'); // Добавьте эту строку
 
 mongoose.connect('mongodb+srv://BFFBOT:LLq-7NW-adG-e44@bffbot.hr7tpgj.mongodb.net/BFFBOT', {
   useNewUrlParser: true,
@@ -23,22 +24,44 @@ app.get('/auth/discord', async (req, res) => {
   await handleDiscordAuth(req, res, code);
 });
 
+// Ограничение размера файла
+const options = {
+  limit: '100kb' // Лимит размера файла
+};
 
-// Обработка статических файлов
-app.use(express.static(path.join(__dirname, 'web')));
+app.use('/', staticGzip(root, options));
+const root = path.join(__dirname, 'web');
 
-// Обработка маршрутов /web/authorize, /web/home, /web/game
+
+app.use(express.static(path.join(__dirname)));
+
+// Обработка маршрутов для HTML и CSS файлов
 app.get('/web/clicker/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'web', 'clicker', 'index.html'));
+  res.sendFile(path.join(__dirname, 'web', 'clicker', 'index.html'));
 });
-app.get('/web/mine/', (req, res) => {
+app.get('/web/clicker/index.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'clicker', 'index.css'));
+});
+
+app.get('/web/clicker/mine/', (req, res) => {
   res.sendFile(path.join(__dirname, 'web', 'clicker', 'mine', 'index.html'));
 });
-app.get('/web/clicker/friends', (req, res) => {
+app.get('/web/clicker/mine/index.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'clicker', 'mine', 'index.css'));
+});
+
+app.get('/web/clicker/friends/', (req, res) => {
   res.sendFile(path.join(__dirname, 'web', 'clicker', 'friends', 'index.html'));
 });
-app.get('/web/clicker/earn', (req, res) => {
+app.get('/web/clicker/friends/index.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'clicker', 'friends', 'index.css'));
+});
+
+app.get('/web/clicker/earn/', (req, res) => {
   res.sendFile(path.join(__dirname, 'web', 'clicker', 'earn', 'index.html'));
+});
+app.get('/web/clicker/earn/index.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'clicker', 'earn', 'index.css'));
 });
 
 // Обработка любых других запросов через ./index.html

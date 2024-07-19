@@ -1,5 +1,6 @@
 body {
     background-color: rgb(16, 16, 16);
+    transition: all 0.5s;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -7,18 +8,24 @@ body {
     position: relative;
 }
 
+.topbar-up {
+    background-color: rgb(240, 240, 240);
+    margin-top: -200vh;
+    left: 50vh;
+    position: relative;
+}
 
 .main {
+    position: relative; /* Изменено на "relative" для сохранения места в потоке содержимого */
     background-color: rgb(50, 50, 50); /* Existing property */
     display: flex; /* Existing property */
     justify-content: center; /* Existing property */
     align-items: center; /* Existing property */
     margin-top: 14vh; /* Existing property */
-    height: 5vh; /* Existing property */
-    padding: 54vh; /* Existing property, might need adjustment */
+    height: 200vh; /* Existing property */
+    padding: 44vh; /* Existing property, might need adjustment */
     border-radius: 25px; /* Existing property */
     border-top-width: 25px; /* Existing property */
-    position: relative; /* Existing property */
     border-top-color: rgb(243, 186, 47); /* Existing property */
     border-top-left-radius: 40px; /* Existing property */
     border-top-right-radius: 40px; /* Existing property */
@@ -28,12 +35,13 @@ body {
 }
 
 .topbar {
+    position: relative;
     background-color: rgb(22, 22, 22);
-    border-radius: 2.5vh;
+    border-radius: 1.0vh;
     position: fixed;
     bottom: 0;
     left: 50; /* Set the top-left corner of the bar to align with the left edge of the viewport */
-    width: 109vh; /* Make the top bar full width */
+    width: 108vh; /* Make the top bar full width */
     height: 5vh;
     display: flex;
     justify-content: center;
@@ -41,6 +49,7 @@ body {
     z-index: 999; /* Ensure the top bar is above other content */
 }
 a {
+    position: relative;
     color: rgb(55, 55, 55);
     margin-left: 3vh;
     margin-right: 3vh;
@@ -48,6 +57,7 @@ a {
     text-decoration: none; /* Remove underline from anchor elements */
 }
 a:hover {
+    position: relative;
     padding: 0.9vh;
     border-radius: 25vh;
     background-color: rgb(34, 34, 34);
@@ -64,4 +74,26 @@ a:hover {
     color: rgb(255, 255, 255);;
     border-radius: 25vh;
     background-color: rgb(34, 34, 34);
+}
+.homak-button {
+    background-color: rgba(0, 0, 0, 0);
+    height: 30vh;
+    width: 20vh;
+    margin-top: -200vh;
+    border-radius: 2vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.homak {
+    background-color: rgba(0, 0, 0, 0);
+    height: 30vh;
+    width: 20vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
