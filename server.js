@@ -5,6 +5,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const staticGzip = require('express-static-gzip'); // Добавьте эту строку
+const root = path.join(__dirname);
 
 mongoose.connect('mongodb+srv://BFFBOT:LLq-7NW-adG-e44@bffbot.hr7tpgj.mongodb.net/BFFBOT', {
   useNewUrlParser: true,
@@ -26,11 +27,13 @@ app.get('/auth/discord', async (req, res) => {
 
 // Ограничение размера файла
 const options = {
+  enableBrotli: true, // Включить поддержку Brotli для сжатия
+  customCompressions: [{ encodingName: 'deflate', fileExtension: 'zz' }], // Дополнительные настройки сжатия
+  orderPreference: ['br', 'gz'], // Предпочтительность порядка сжатия
   limit: '100kb' // Лимит размера файла
 };
 
 app.use('/', staticGzip(root, options));
-const root = path.join(__dirname, 'web');
 
 
 app.use(express.static(path.join(__dirname)));
