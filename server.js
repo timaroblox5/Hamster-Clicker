@@ -39,32 +39,33 @@ app.use('/', staticGzip(root, options));
 app.use(express.static(path.join(__dirname)));
 
 // Обработка маршрутов для HTML и CSS файлов
-app.get('/web/clicker/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'clicker', 'index.html'));
+app.get('/web/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'clicker.html'));
 });
-app.get('/web/clicker/index.css', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'clicker', 'index.css'));
-});
-
-app.get('/web/clicker/mine/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'clicker', 'mine', 'index.html'));
-});
-app.get('/web/clicker/mine/index.css', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'clicker', 'mine', 'index.css'));
+app.get('/web/clicker.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'clicker.css'));
 });
 
-app.get('/web/clicker/friends/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'clicker', 'friends', 'index.html'));
+app.get('/web/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'mine.html'));
 });
-app.get('/web/clicker/friends/index.css', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'clicker', 'friends', 'index.css'));
+app.get('/web/mine.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'mine.css'));
 });
 
-app.get('/web/clicker/earn/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'clicker', 'earn', 'index.html'));
+app.get('/web/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'friends.html'));
 });
-app.get('/web/clicker/earn/index.css', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'clicker', 'earn', 'index.css'));
+app.get('/web/friends.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'friends.css'));
+});
+
+
+app.get('/web/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'earn.html'));
+});
+app.get('/web/earn.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web', 'earn.css'));
 });
 
 // Обработка любых других запросов через ./index.html
