@@ -7,7 +7,7 @@ const app = express();
 const staticGzip = require('express-static-gzip'); // Добавьте эту строку
 const root = path.join(__dirname);
 
-mongoose.connect('mongodb+srv://BFFBOT:LLq-7NW-adG-e44@bffbot.hr7tpgj.mongodb.net/BFFBOT', {
+mongoose.connect(process.env.MONGODB_CONNECTION, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -39,33 +39,33 @@ app.use('/', staticGzip(root, options));
 app.use(express.static(path.join(__dirname)));
 
 // Обработка маршрутов для HTML и CSS файлов
-app.get('/docs/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'docs', 'clicker.html'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'clicker.html'));
 });
-app.get('/docs/clicker.css', (req, res) => {
-  res.sendFile(path.join(__dirname, 'docs', 'clicker.css'));
-});
-
-app.get('/docs/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'docs', 'mine.html'));
-});
-app.get('/docs/mine.css', (req, res) => {
-  res.sendFile(path.join(__dirname, 'docs', 'mine.css'));
+app.get('/clicker.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'clicker.css'));
 });
 
-app.get('/docs/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'docs', 'friends.html'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'mine.html'));
 });
-app.get('/docs/friends.css', (req, res) => {
-  res.sendFile(path.join(__dirname, 'docs', 'friends.css'));
+app.get('/mine.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'mine.css'));
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'friends.html'));
+});
+app.get('/friends.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'friends.css'));
 });
 
 
-app.get('/docs/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'docs', 'earn.html'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'earn.html'));
 });
-app.get('/docs/earn.css', (req, res) => {
-  res.sendFile(path.join(__dirname, 'docs', 'earn.css'));
+app.get('/earn.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'earn.css'));
 });
 
 // Обработка любых других запросов через ./index.html
