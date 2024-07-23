@@ -39,33 +39,33 @@ app.use('/', staticGzip(root, options));
 app.use(express.static(path.join(__dirname)));
 
 // Обработка маршрутов для HTML и CSS файлов
-app.get('/web/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'clicker.html'));
+app.get('/docs/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'docs', 'clicker.html'));
 });
-app.get('/web/clicker.css', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'clicker.css'));
-});
-
-app.get('/web/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'mine.html'));
-});
-app.get('/web/mine.css', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'mine.css'));
+app.get('/docs/clicker.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'docs', 'clicker.css'));
 });
 
-app.get('/web/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'friends.html'));
+app.get('/docs/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'docs', 'mine.html'));
 });
-app.get('/web/friends.css', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'friends.css'));
+app.get('/docs/mine.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'docs', 'mine.css'));
+});
+
+app.get('/docs/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'docs', 'friends.html'));
+});
+app.get('/docs/friends.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'docs', 'friends.css'));
 });
 
 
-app.get('/web/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'earn.html'));
+app.get('/docs/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'docs', 'earn.html'));
 });
-app.get('/web/earn.css', (req, res) => {
-  res.sendFile(path.join(__dirname, 'web', 'earn.css'));
+app.get('/docs/earn.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'docs', 'earn.css'));
 });
 
 // Обработка любых других запросов через ./index.html
