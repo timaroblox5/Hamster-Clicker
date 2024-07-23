@@ -4,73 +4,70 @@ const { handleDiscordAuth } = require('./assets/js/discordAuth'); // Import the 
 const express = require('express');
 const path = require('path');
 const app = express();
-const staticGzip = require('express-static-gzip'); // Добавьте эту строку
+const staticGzip = require('express-static-gzip'); // Add this line
 const root = path.join(__dirname);
 
+// Connect to MongoDB using the connection string from the environment variable
 mongoose.connect(process.env.MONGODB_CONNECTION, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
+// Define User model
 const User = mongoose.model('User', new mongoose.Schema({
   discordId: String,
   username: String,
-  // Other fields
+  // Other fields can be added here
 }));
 
+// Discord authentication route
 app.get('/auth/discord', async (req, res) => {
   const code = req.query.code;
-
-  // Call the function from discordAuth.js
   await handleDiscordAuth(req, res, code);
 });
 
-// Ограничение размера файла
+// Static file serving with gzip compression options
 const options = {
-  enableBrotli: true, // Включить поддержку Brotli для сжатия
-  customCompressions: [{ encodingName: 'deflate', fileExtension: 'zz' }], // Дополнительные настройки сжатия
-  orderPreference: ['br', 'gz'], // Предпочтительность порядка сжатия
-  limit: '100kb' // Лимит размера файла
+  enableBrotli: true, // Enable Brotli support for compression
+  customCompressions: [{ encodingName: 'deflate', fileExtension: 'zz' }], // Additional compression settings
+  orderPreference: ['br', 'gz'], // Compression order preference
+  limit: '100kb' // File size limit
 };
 
+// Use staticGzip to serve the root directory
 app.use('/', staticGzip(root, options));
 
-
-app.use(express.static(path.join(__dirname)));
-
-// Обработка маршрутов для HTML и CSS файлов
-app.get('/', (req, res) => {
+// Serve HTML files on specific routes
+app.get('/clicker', (req, res) => {
   res.sendFile(path.join(__dirname, 'clicker.html'));
 });
-app.get('/clicker.css', (req, res) => {
-  res.sendFile(path.join(__dirname, 'clicker.css'));
+app.get('/mine', (req, res) => {
+  res.sendFile(path.join(__dirname, 'mine.html'));
+});
+app.get('/friends', (req, res) => {
+  res.sendFile(path.join(__dirname, 'friends.html'));
+});
+app.get('/earn', (req, res) => {
+  res.sendFile(path.join(__dirname, 'earn.html'));
 });
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'mine.html'));
+// Serve corresponding CSS files
+app.get('/clicker.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'clicker.css'));
 });
 app.get('/mine.css', (req, res) => {
   res.sendFile(path.join(__dirname, 'mine.css'));
 });
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'friends.html'));
-});
 app.get('/friends.css', (req, res) => {
   res.sendFile(path.join(__dirname, 'friends.css'));
-});
-
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'earn.html'));
 });
 app.get('/earn.css', (req, res) => {
   res.sendFile(path.join(__dirname, 'earn.css'));
 });
 
-// Обработка любых других запросов через ./index.html
+// Fallback to index.html for any other routes
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Start the server
