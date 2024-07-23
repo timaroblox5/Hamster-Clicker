@@ -38,30 +38,30 @@ const options = {
 app.use('/', staticGzip(root, options));
 
 // Serve HTML files on specific routes
-app.get('/clicker', (req, res) => {
+app.get('/docs', (req, res) => {
   res.sendFile(path.join(__dirname, 'clicker.html'));
 });
-app.get('/mine', (req, res) => {
+app.get('/docs', (req, res) => {
   res.sendFile(path.join(__dirname, 'mine.html'));
 });
-app.get('/friends', (req, res) => {
+app.get('/docs', (req, res) => {
   res.sendFile(path.join(__dirname, 'friends.html'));
 });
-app.get('/earn', (req, res) => {
+app.get('/docs', (req, res) => {
   res.sendFile(path.join(__dirname, 'earn.html'));
 });
 
 // Serve corresponding CSS files
-app.get('/clicker.css', (req, res) => {
+app.get('/docs/clicker.css', (req, res) => {
   res.sendFile(path.join(__dirname, 'clicker.css'));
 });
-app.get('/mine.css', (req, res) => {
+app.get('/docs/mine.css', (req, res) => {
   res.sendFile(path.join(__dirname, 'mine.css'));
 });
-app.get('/friends.css', (req, res) => {
+app.get('/docs/friends.css', (req, res) => {
   res.sendFile(path.join(__dirname, 'friends.css'));
 });
-app.get('/earn.css', (req, res) => {
+app.get('/docs/earn.css', (req, res) => {
   res.sendFile(path.join(__dirname, 'earn.css'));
 });
 
